@@ -18,33 +18,33 @@ using namespace std;
                     return false;
             }
         }
-
         return true;
     }
 
-    bool Matrix::operator!=(Matrix &m1, Matrix &m2) {
+    bool Matrix::operator!=(Matrix &m2) {
 
-        if (m1.dVec.size() == m2.dVec.size()
-            ||m1.dVec[1].size() == m2.dVec[1].size())
+        if (dVec.size() == m2.dVec.size()
+            ||dVec[1].size() == m2.dVec[1].size())
             return true;
 
-        for (int i = 0; i < m1.dVec.size(); i++)
+        for (int i = 0; i < dVec.size(); i++)
         {
-            for (int j = 0; j < m1.dVec[i].size(); j++) {
-                if (m1.dVec[i][j] != m2.dVec[i][j])
+            for (int j = 0; j < dVec[i].size(); j++) {
+                if (dVec[i][j] != m2.dVec[i][j])
                     return true;
             }
         }
 
         return false;
     }
-    void Matrix::operator--(Matrix &m1) {
-        for (int i = 0; i < m1.dVec.size(); i++)
+    void Matrix::operator--() {
+        for (int i = 0; i < dVec.size(); i++)
         {
-            for (int j = 0; j < m1.dVec[i].size(); j++) {
-                m1.dVec[i][j] = m1.dVec[i][j] + 1;
+            for (int j = 0; j < dVec[i].size(); j++) {
+                dVec[i][j] = dVec[i][j] + 1;
             }
         }
+        return *this;
     }
 
     void Matrix::operator++(Matrix &m1) {
@@ -57,22 +57,23 @@ using namespace std;
 
     }
 
-    Matrix& Matrix::operator=(Matrix &m1) {
+    Matrix& Matrix::operator=(Matrix m1) {
         swap(*this, m1);
         return *this;
     }
 
-    void Matrix::operator+=(Matrix &m1, Matrix &m2) {
-        if (m1.dVec.size() != m2.dVec.size()
-            ||m1.dVec[1].size() != m2.dVec[1].size())
+    Matrix& Matrix::operator+=(Matrix &m2) {
+        if (dVec.size() != m2.dVec.size()
+            ||dVec[1].size() != m2.dVec[1].size())
             throw "Size is not the same!";
 
-        for (int i = 0; i < m1.dVec.size(); i++)
+        for (int i = 0; i < m2.dVec.size(); i++)
         {
-            for (int j = 0; j < m1.dVec[i].size(); j++) {
-                m1.dVec[i][j] = m1.dVec[i][j] + m2.dVec[i][j];
+            for (int j = 0; j < dVec[i].size(); j++) {
+                dVec[i][j] = dVec[i][j] + m2.dVec[i][j];
             }
         }
+        return *this;
     }
     void Matrix::operator-=(Matrix &m1, Matrix &m2){
         if (m1.dVec.size() != m2.dVec.size()

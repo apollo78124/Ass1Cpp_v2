@@ -22,16 +22,16 @@ public:
     void clear();
     ~Matrix ();
     friend ostream &operator<<(std::ostream &stream, const Matrix &a1);
-    friend bool operator==(const Matrix &m1, const Matrix &m2);
-    friend bool operator!=(const Matrix &m1, const Matrix &m2);
-    friend void operator--(Matrix &m1);
-    friend void operator++(Matrix &m1);
-    friend Matrix& operator=(Matrix &m1);
-    friend void operator+=(Matrix &m1, Matrix &m2);
-    friend void operator-=(Matrix &m1, Matrix &m2);
-    friend void operator+(Matrix &m1, Matrix &m2);
-    friend void operator*(Matrix &m1, Matrix &m2);
-    friend void operator*=(Matrix &m1, Matrix &m2);
+     bool operator==(const Matrix &m2);
+     bool operator!=(Matrix &m2);
+     Matrix& operator--();
+     Matrix& operator++();
+     Matrix& operator=(Matrix m1);
+     Matrix& operator+=(Matrix &m2);
+     Matrix& operator-=(Matrix &m2);
+     Matrix& operator+(Matrix &m2);
+     Matrix& operator*(Matrix &m2);
+     Matrix& operator*=(Matrix &m2);
 
 
 };
