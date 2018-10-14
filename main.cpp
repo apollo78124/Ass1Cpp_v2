@@ -1,12 +1,13 @@
 #include <iostream>
 #include <vector>
-#include "matrix.hpp"
+#include "matrix.cpp"
 
 using namespace std;
 
 int main() {
 
     Matrix* a1 = new Matrix();
+    cout << a1 ;
     /**
     vector< vector<double> > dVec;
     vector<double> myRow(2, 0.0);

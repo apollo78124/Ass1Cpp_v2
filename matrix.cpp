@@ -1,14 +1,13 @@
+#define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
 #include <iostream>
 #include <vector>
 #include <array>
 #include <math.h>
 #include "matrix.hpp"
-# define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
 
 using namespace std;
 
 Matrix::Matrix() {
-    cout<<"hi";
     vector<double> myRow(1, 0.0);
     dVec.push_back(myRow);
 // add element to row
