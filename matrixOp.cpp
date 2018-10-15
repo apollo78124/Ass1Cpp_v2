@@ -58,6 +58,8 @@ Matrix& Matrix::operator++() {
 
 }
 
+
+
 Matrix& Matrix::operator=(Matrix m1) {
     swap(*this, m1);
     return *this;
@@ -101,7 +103,7 @@ Matrix& Matrix::operator+(Matrix m2){
     for (int i = 0; i < dVec.size(); i++)
     {
         for (int j = 0; j < dVec[i].size(); j++) {
-            temp[i][j] = dVec[i][j] + m2.dVec[i][j];
+            temp->dVec[i][j] = dVec[i][j] + m2.dVec[i][j];
         }
     }
     return *temp;

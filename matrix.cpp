@@ -4,6 +4,7 @@
 #include <array>
 #include <math.h>
 #include "matrix.hpp"
+#include "matrixOp.cpp"
 
 using namespace std;
 
@@ -26,6 +27,12 @@ Matrix::Matrix (int r, int c) {
         dVec.push_back(myRow);
 }
 
+Matrix::Matrix (int r, int c, double v) {
+    vector<double> myRow(c,v);
+    for (int i = 0; i < r; i++)
+        dVec.push_back(myRow);
+}
+
 Matrix::Matrix (double arr[], int size) {
 
     if (size < 0)
@@ -36,7 +43,7 @@ Matrix::Matrix (double arr[], int size) {
 
     int n = sqrt (size);
 
-    vector<double> myRow(n,0);
+    vector<double> myRow(n,(double) 0.0);
     for (int i = 0; i < n; i++)
         dVec.push_back(myRow);
     int arrayI = 0;
