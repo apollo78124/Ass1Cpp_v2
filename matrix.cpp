@@ -26,8 +26,7 @@ Matrix::Matrix (int r, int c) {
         dVec.push_back(myRow);
 }
 
-Matrix::Matrix (double arr[]) {
-    int size = my_sizeof(arr)/my_sizeof(arr[0]);
+Matrix::Matrix (double arr[], int size) {
 
     if (size < 0)
         throw "Square root of Size is not integer!";

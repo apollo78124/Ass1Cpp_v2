@@ -12,7 +12,7 @@ public:
     Matrix ();
     Matrix (int n);
     Matrix (int r, int c);
-    Matrix (double a[]);
+    Matrix (double arr[], int size);
     vector <vector<double>> dVec;
     void set_value(int r, int c , double v);
     double get_value(int r, int c);

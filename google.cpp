@@ -3,15 +3,13 @@
 #include <array>
 #include <math.h>
 #include "matrix.hpp"
+#include "google.hpp"
 
 using namespace std;
-
-class Google {
-
-public:
-    Google();
-
-    Google(int n);
-};
+/**
+Google::Google(Matrix& a1) {
+    *m1 = *a1;
+}
+ */
 
 
