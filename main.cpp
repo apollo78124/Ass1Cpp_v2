@@ -100,15 +100,15 @@ int main() {
         }
         cout<<"\n";
     }
+    cout<<"This does not print for a very weird error! help!";
+
+    Matrix* rank = new Matrix(a1->dVec.size(), 1, (double) 1);
 
 
-    Matrix* rank = new Matrix(a1->dVec.size(), 1, 1);
-
-    cout<<"----";
     Matrix* m1 = new Matrix((*m) * (*rank));
 
     for (int i = 0; i < 30; i++) {
-         //m1 *= new Matrix((*m) * (*rank));
+        m1 = new Matrix((*m1) * (*rank));
     }
     cout<<"\n";
     for (int i = 0; i < m1->dVec.size(); i++)

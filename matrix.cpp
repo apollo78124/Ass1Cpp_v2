@@ -11,7 +11,6 @@ using namespace std;
 Matrix::Matrix() {
     vector<double> myRow(1, 0.0);
     dVec.push_back(myRow);
-// add element to row
 }
 
 Matrix::Matrix(int n) {

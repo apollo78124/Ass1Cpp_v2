@@ -110,8 +110,11 @@ Matrix& Matrix::operator+(Matrix m2){
 }
 Matrix& Matrix::operator*(Matrix m2){
     if (dVec.size() < m2.dVec.size()
-        ||dVec[1].size() > m2.dVec[1].size())
+        ||dVec[1].size() > m2.dVec[1].size()){
+        cout<<"error";
         throw "Size not multipliable";
+    }
+
 
     Matrix *temp = new Matrix(dVec.size(), m2.dVec[1].size());
     double loopTemp = 0;
