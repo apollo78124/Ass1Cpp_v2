@@ -88,7 +88,7 @@ int main() {
         for (int j = 0; j < transition->dVec[i].size(); j++) {
             cout<<transition->dVec[i][j] << " ";
         }
-        cout<<"\n";
+        cout<<'\n';
     }
     cout<<"\n";
     Matrix* m = new Matrix((*transition) + (*importance));
