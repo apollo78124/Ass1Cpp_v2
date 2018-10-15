@@ -62,6 +62,15 @@ int main() {
             importance->dVec[i][j] = importance->dVec[i][j] * p;
         }
     }
+    cout<<"Importance Matrix\n";
+    for (int i = 0; i < importance->dVec.size(); i++)
+    {
+        for (int j = 0; j < importance->dVec[i].size(); j++) {
+            cout<<importance->dVec[i][j] << " ";
+        }
+        cout<<"\n";
+    }
+    cout<<"\n";
 
     //
     //multiply transition
@@ -73,6 +82,15 @@ int main() {
             transition->dVec[i][j] = transition->dVec[i][j] * (1-p);
         }
     }
+    cout<<"Transition Matrix\n";
+    for (int i = 0; i < transition->dVec.size(); i++)
+    {
+        for (int j = 0; j < transition->dVec[i].size(); j++) {
+            cout<<transition->dVec[i][j] << " ";
+        }
+        cout<<"\n";
+    }
+    cout<<"\n";
     Matrix* m = new Matrix((*transition) + (*importance));
     cout<<"M\n";
     for (int i = 0; i < m->dVec.size(); i++)
@@ -85,15 +103,13 @@ int main() {
 
 
     Matrix* rank = new Matrix(a1->dVec.size(), 1, 1);
-    for (int i = 0; i < rank->dVec.size(); i++)
-    {
-        for (int j = 0; j < rank->dVec[0].size(); j++) {
-            cout<<rank->dVec[i][j] << " ";
-        }
-        cout<<"\n";
-    }
+
     cout<<"----";
     Matrix* m1 = new Matrix((*m) * (*rank));
+
+    for (int i = 0; i < 30; i++) {
+         //m1 *= new Matrix((*m) * (*rank));
+    }
     cout<<"\n";
     for (int i = 0; i < m1->dVec.size(); i++)
     {
