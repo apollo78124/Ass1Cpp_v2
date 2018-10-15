@@ -131,6 +131,7 @@ Matrix& Matrix::operator*(Matrix m2){
     return *temp;
 }
 Matrix& Matrix::operator*=(Matrix m2){
+    cout << "-----------------";
     if (dVec.size() < m2.dVec.size()
         ||dVec[1].size() > m2.dVec[1].size())
         throw "Size not multipliable";
@@ -149,7 +150,8 @@ Matrix& Matrix::operator*=(Matrix m2){
             temp->dVec[i][j] = loopTemp;
         }
     }
-
+    cout << "-----------------";
+    cout << temp;
     *this = *temp;
 
     return *this;

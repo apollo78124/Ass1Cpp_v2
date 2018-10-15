@@ -9,10 +9,10 @@ int main() {
     double *d1 = new double[20000];
     double p = 0.85;
     int count = 0;
-    ifstream ifile("connectivity.txt", std::ios::in);
+    ifstream ifile("connectivity.txt", ios::in);
 
     if (!ifile.is_open()) {
-        std::cerr << "There was a problem opening the input file!\n";
+        cerr << "There was a problem opening the input file!\n";
         exit(1);
     }
 
@@ -22,7 +22,7 @@ int main() {
         d1[count] = num;
         count++;
     }
-
+    ifile.close ();
     double *d2 = new double[count];
 
     for (int i = 0; i < count; i++) {
@@ -46,18 +46,13 @@ int main() {
             if (columnSum == 0)
                 importance->dVec[i][j] = 1/(double)a1->dVec.size();
         }
-
     }
-
 
     /**
      * Transition matrix
      */
     Matrix* transition = new Matrix(a1->dVec.size(), a1->dVec[1].size(), 1/(double)a1->dVec[1].size());
 
-
-
-    //
     //multiply importance
     //
     //
@@ -78,9 +73,6 @@ int main() {
             transition->dVec[i][j] = transition->dVec[i][j] * (1-p);
         }
     }
-
-
-
     Matrix* m = new Matrix((*transition) + (*importance));
     cout<<"M\n";
     for (int i = 0; i < m->dVec.size(); i++)
@@ -95,26 +87,20 @@ int main() {
     Matrix* rank = new Matrix(a1->dVec.size(), 1, 1);
     for (int i = 0; i < rank->dVec.size(); i++)
     {
-        for (int j = 0; j < rank->dVec[i].size(); j++) {
+        for (int j = 0; j < rank->dVec[0].size(); j++) {
             cout<<rank->dVec[i][j] << " ";
         }
         cout<<"\n";
     }
-
-    *m *= (*rank);
+    cout<<"----";
+    Matrix* m1 = new Matrix((*m) * (*rank));
     cout<<"\n";
-    for (int i = 0; i < m->dVec.size(); i++)
+    for (int i = 0; i < m1->dVec.size(); i++)
     {
-        for (int j = 0; j < m->dVec[i].size(); j++) {
-            cout<<m->dVec[i][j] << " ";
+        for (int j = 0; j < m1->dVec[i].size(); j++) {
+            cout<<m1->dVec[i][j] << " ";
         }
         cout<<"\n";
     }
-
-    ifile.close ();
-
-
-// add element to row
-
     return 0;
 }
