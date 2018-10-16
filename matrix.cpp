@@ -1,4 +1,3 @@
-#define my_sizeof(type) ((char *)(&type+1)-(char*)(&type))
 #include <iostream>
 #include <vector>
 #include <array>
@@ -81,7 +80,7 @@ void Matrix::clear() {
 }
 
 Matrix::~Matrix()
-{ cout<<"Destruct Matrix \n"; }
+{cout<<"Destruct matrix"<<endl;}
 
 ostream &operator<<(std::ostream &stream, const Matrix &a1) {
     cout << "Overload insertion operator.\n";

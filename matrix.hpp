@@ -28,8 +28,9 @@ public:
      Matrix& operator=(Matrix m1);
      Matrix& operator+=(Matrix m2);
      Matrix& operator-=(Matrix m2);
-     Matrix& operator+(Matrix m2);
-     Matrix& operator*(Matrix m2);
+     friend Matrix operator+(Matrix m1, Matrix m2);
+     friend Matrix operator*(Matrix m1, Matrix m2);
+     friend Matrix operator*(Matrix m1, double d);
      Matrix& operator*=(Matrix m2);
 
 
