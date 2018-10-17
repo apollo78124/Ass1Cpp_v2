@@ -69,7 +69,7 @@ void Google::getPageRankMatrix(Matrix m1, double p) {
     }
 
     Matrix m = ((transition) + (importance));
-    cout<<"M\n";
+    cout<<"\nM\n";
     for (int i = 0; i < m.dVec.size(); i++)
     {
         for (int j = 0; j < m.dVec[i].size(); j++) {
@@ -109,6 +109,8 @@ void Google::getPageRankMatrix(Matrix m1, double p) {
             rankTemp.dVec[i][j] /= sumRank;
         }
     }
+
+    cout<<"\nPage Rank"<<endl;
     char pageName = 'A';
     for (int i = 0; i < rankTemp.dVec.size(); i++)
     {
