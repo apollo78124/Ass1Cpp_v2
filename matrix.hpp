@@ -68,7 +68,6 @@ public:
     // RETURN : void.
      void matrixSwap(Matrix& m1, Matrix &m2);
 
-
 };
 
 #endif //ASS1CPP_V2_MATRIX_HPP
