@@ -115,7 +115,7 @@ void Google::getPageRankMatrix(Matrix m1, double p) {
     for (int i = 0; i < rankTemp.dVec.size(); i++)
     {
         for (int j = 0; j < rankTemp.dVec[i].size(); j++) {
-            cout<<pageName<<": "<< rankTemp.dVec[i][j] << " ";
+            cout<<"Page "<<pageName<<": "<< rankTemp.dVec[i][j] << "% ";
             pageName++;
         }
         cout<<"\n";
