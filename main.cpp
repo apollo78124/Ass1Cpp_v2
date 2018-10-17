@@ -9,7 +9,7 @@ int main() {
     double probability = 0.85;
     Google g1{};
 
-    Matrix initialM = g1.getMatrixFromFile("connectivity.txt");
+    Matrix initialM = g1.getMatrixFromFile("../connectivity.txt");
 
     g1.getPageRankMatrix(initialM, probability);
 
