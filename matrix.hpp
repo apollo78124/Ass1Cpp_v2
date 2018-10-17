@@ -30,8 +30,9 @@ public:
      Matrix& operator-=(Matrix m2);
      friend Matrix operator+(Matrix m1, Matrix m2);
      friend Matrix operator*(Matrix m1, Matrix m2);
-     friend Matrix operator*(Matrix m1, double d);
      Matrix& operator*=(Matrix m2);
+
+     void matrixSwap(Matrix& m1, Matrix &m2);
 
 
 };

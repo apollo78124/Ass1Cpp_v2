@@ -79,8 +79,15 @@ void Matrix::clear() {
     }
 }
 
+void Matrix::matrixSwap(Matrix& m1, Matrix &m2) {
+    using std::swap;
+    swap(m1.dVec, m2.dVec);
+}
+
 Matrix::~Matrix()
-{cout<<"Destruct matrix"<<endl;}
+{
+    //cout<<"Destruct matrix"<<endl;
+    }
 
 ostream &operator<<(std::ostream &stream, const Matrix &a1) {
     cout << "Overload insertion operator.\n";

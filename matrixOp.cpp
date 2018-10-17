@@ -61,7 +61,7 @@ Matrix& Matrix::operator++() {
 
 
 Matrix& Matrix::operator=(Matrix m1) {
-    swap(*this, m1);
+    matrixSwap(*this, m1);
     return *this;
 }
 
@@ -109,10 +109,9 @@ Matrix operator+(Matrix m1, Matrix m2) {
     return temp;
 }
 Matrix operator*(Matrix m1, Matrix m2){
-    if (m1.dVec.size() < m2.dVec.size()
-        ||m1.dVec[1].size() > m2.dVec[1].size()){
+    if (m1.dVec[1].size() > m2.dVec.size()){
         cout<<"error";
-        throw "Size not multipliable";
+        //throw "Size not multipliable";
     }
 
     Matrix temp(m1.dVec.size(), m2.dVec[1].size());
@@ -127,14 +126,14 @@ Matrix operator*(Matrix m1, Matrix m2){
                 loopTemp += m1.dVec[i][a] * m2.dVec[a][j];
             }
             temp.dVec[i][j] = loopTemp;
+            loopTemp = 0;
         }
     }
 
     return temp;
 }
 Matrix& Matrix::operator*=(Matrix m2){
-    if (dVec.size() < m2.dVec.size()
-        ||dVec[1].size() > m2.dVec[1].size()) {
+    if (dVec[1].size() > m2.dVec.size()) {
         throw "Size not multipliable";
     }
 
@@ -151,23 +150,14 @@ Matrix& Matrix::operator*=(Matrix m2){
                 loopTemp += dVec[i][a] * m2.dVec[a][j];
             }
             temp->dVec[i][j] = loopTemp;
+            loopTemp = 0;
         }
     }
-    cout << "-----------------";
     cout << temp;
     *this = *temp;
 
     return *this;
 }
 
-Matrix operator*(Matrix m1, double d) {
-    for (int i = 0; i < m1.dVec.size(); i++)
-    {
-        for (int j = 0; j < m1.dVec[0].size(); j++) {
-            m1.dVec[i][j] *= d;
-        }
-    }
 
-    return m1;
-}
 
